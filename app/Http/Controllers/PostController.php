@@ -4,11 +4,24 @@ use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
-class PostController extends Controller
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
+
+class PostController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:ver posts', ['only' => ['index', 'show']]),
+            new Middleware('permission:crear posts', ['only' => ['create', 'store']]),
+            new Middleware('permission:editar posts', ['only' => ['edit', 'update']]),
+            new Middleware('permission:eliminar posts', ['only' => ['destroy']]),
+        ];
+    }
+
     public function index()
     {
-        $posts = Post::with('category')->get();
+        $posts = Post::with('category')->paginate(10);
         return view('posts.index', compact('posts'));
     }
     public function create()

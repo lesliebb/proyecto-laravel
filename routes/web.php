@@ -19,10 +19,9 @@ Route::middleware('auth')->group(function () {
         return view('dashboard');
     })->middleware(['verified'])->name('dashboard');
 
-    Route::middleware(IsAdminMiddleware::class)->group(function () {
-        Route::resource('categories', CategoryController::class);
-        Route::resource('posts', PostController::class);
-    });
+
+    Route::resource('categories', CategoryController::class);
+    Route::resource('posts', PostController::class);
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
