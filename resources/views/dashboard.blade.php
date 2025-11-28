@@ -13,12 +13,12 @@
                 </div>
                 <div>
                     @if (Auth::user()->is_admin)
-                        <a href="{{ route('categories.index') }}">Categories</a>
-                        <a href="{{ route('posts.index') }}">Posts</a>
+                        <a href="{{ route('categories.index') }}">Categories </a>
+                        <a href="{{ route('posts.index') }}"> Posts</a>
                         
                     @else (!Auth::user()->is_admin)
 
-                        <a href="{{ route('posts.index') }}">Posts</a>
+                        <a href="{{ route('posts.index') }}"> Posts </a>
                         <a href="{{ route('categories.index') }}">Categories</a>
                     @endif
                 </div>

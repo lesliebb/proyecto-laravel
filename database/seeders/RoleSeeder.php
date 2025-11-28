@@ -23,7 +23,7 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'editar posts']);
         Permission::create(['name' => 'eliminar posts']);
 
-        // 2. Crear un Rol para usuarios normales (Ejemplo: Editor)
+        // 2. Crear un Rol para usuarios normales 
         $role = Role::create(['name' => 'editor']);
 
         // 3. Asignar permisos al rol (ejemplo: solo ver y crear, no borrar)

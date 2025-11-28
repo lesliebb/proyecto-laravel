@@ -43,6 +43,8 @@
                                         </td>
                                         <td class="border-dashed border-t border-gray-200 px-6 py-4">
                                             <div class="flex items-center space-x-4">
+                                                <a href="{{ route('posts.show', $post) }}" class="text-green-600 hover:text-green-900 font-medium">
+                                                    {{ __('View') }}
                                                 @can('editar posts')
                                                     <a href="{{ route('posts.edit', $post) }}" class="text-indigo-600 hover:text-indigo-900 font-medium">
                                                         {{ __('Edit') }}
